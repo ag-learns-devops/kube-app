@@ -31,11 +31,6 @@ spec:
                   key: db-pass
       nodeSelector:
         zone: us-east-1a
-      volumes:
-        - name: vpro-db-data
-          awsElasticBlockStore:
-            volumeID: vol-0db6ed1d0d46b7ee3
-            fsType: ext4
       initContainers:
         - name: busybox
           image: busybox:latest
@@ -43,3 +38,8 @@ spec:
           volumeMounts:
             - mountPath: vpro-db-data
               name: /ruff
+      volumes:
+        - name: vpro-db-data
+          awsElasticBlockStore:
+            volumeID: vol-0db6ed1d0d46b7ee3
+            fsType: ext4
