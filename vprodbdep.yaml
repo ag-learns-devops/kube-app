@@ -36,8 +36,8 @@ spec:
           image: busybox:latest
           args: ["rm", "-rf", "/ruff/lost+found"]
           volumeMounts:
-            - mountPath: vpro-db-data
-              name: /ruff
+            - mountPath: /ruff
+              name: vpro-db-data
       volumes:
         - name: vpro-db-data
           awsElasticBlockStore:
